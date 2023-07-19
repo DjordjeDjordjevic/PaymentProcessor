@@ -32,6 +32,7 @@ namespace PaymentProcessorServer.Controllers
 
             if (transaction == null)
             {
+                _logger.LogError("Transactions not found");
                 return new JsonResult(new
                 {
                     Value = "Transactions not found"
