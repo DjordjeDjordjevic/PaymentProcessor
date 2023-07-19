@@ -1,0 +1,48 @@
+﻿<Window x:Class="PaymentProcessorClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid>
+        <DockPanel>
+            <StackPanel Margin="10"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal"
+                        DockPanel.Dock="Top">
+                <Button Content="Refresh"
+                        Margin="10,5"
+                        Click="Refresh_Click" />
+                <Button Content="Make the payment"
+                        Margin="10,5"
+                        Click="MakePayment_Click" />
+            </StackPanel>
+
+            <DataGrid x:Name="dgTransactions"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      Margin="10,0,10,10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Date"
+                                        Width="auto"
+                                        Binding="{Binding Date}" />
+                    <DataGridTextColumn Header="Amount"
+                                        Width="auto"
+                                        Binding="{Binding Amount}" />
+                    <DataGridTextColumn Header="Account"
+                                        Width="auto"
+                                        Binding="{Binding Account.BankName}" />
+                    <DataGridTextColumn Header="Consultant"
+                                        Width="auto"
+                                        Binding="{Binding Consultant}" />
+                    <DataGridTextColumn Header="Vendor"
+                                        Width="auto"
+                                        Binding="{Binding Vendor}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Grid>
+</Window>

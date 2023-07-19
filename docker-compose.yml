@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  server:
+    container_name: server
+    build: ./PaymentProcessorServer/
+    ports:
+      - 33000:80
+      - 33001:433
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:443;http://+:80
+      - ASPNETCORE_HTTP_PORT=33000
